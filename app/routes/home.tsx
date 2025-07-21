@@ -2,6 +2,9 @@ import NavBar from "~/components/NavBar";
 import type { Route } from "./+types/home";
 import { resumes } from "../../constants"
 import ResumeCard from "~/components/ResumeCard";
+import { usePuterStore } from "~/lib/puter";
+import { useLocation, useNavigate } from "react-router";
+import { useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,6 +17,15 @@ export default function Home() {
   function callbackfn(resumes: any): any {
     throw new Error("Function not implemented.");
   }
+
+  const { isLoading, auth } = usePuterStore();
+    const location = useLocation();
+    const next = location.search.split('next=')[1];
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!auth.isAuthenticated) navigate('/auth?next=/');
+    }, [auth.isAuthenticated])
   return <main>
     <NavBar/>
     <section className="main-section">
