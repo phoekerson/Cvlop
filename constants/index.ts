@@ -1,7 +1,7 @@
 export const resumes: Resume[] = [
   {
     id: "1",
-    companyName: "Gozem",
+    companyName: "Lomé Business School",
     jobTitle: "Frontend Developer",
     imagePath: "/images/resume-1.png",
     resumePath: "/resumes/resume-1.pdf",
@@ -28,6 +28,7 @@ export const resumes: Resume[] = [
         tips: [],
       },
     },
+    resumeUrl: undefined
   },
   {
     id: "2",
@@ -58,10 +59,11 @@ export const resumes: Resume[] = [
         tips: [],
       },
     },
+    resumeUrl: undefined
   },
   {
     id: "3",
-    companyName: "Togocom",
+    companyName: "Gozem",
     jobTitle: "iOS Developer",
     imagePath: "/images/resume-3.png",
     resumePath: "/resumes/resume-3.pdf",
@@ -88,6 +90,7 @@ export const resumes: Resume[] = [
         tips: [],
       },
     },
+    resumeUrl: undefined
   },
 ];
 

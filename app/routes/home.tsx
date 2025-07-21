@@ -1,5 +1,7 @@
 import NavBar from "~/components/NavBar";
 import type { Route } from "./+types/home";
+import { resumes } from "../../constants"
+import ResumeCard from "~/components/ResumeCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,14 +11,24 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  function callbackfn(resumes: any): any {
+    throw new Error("Function not implemented.");
+  }
   return <main>
-
     <NavBar/>
     <section className="main-section">
       <div className="page-heading">
         <h1>Track Your Resume Ratings</h1>
         <h2>Review your submissions and check AI powered feedback.</h2>
       </div>
+    {resumes.length > 0 && (
+      <div className="resumes-section">
+    {resumes.map((resume) => (
+              <ResumeCard key={resume.id} resume={resume} />
+    ))}
+    </div>
+    )}
+    
     </section>
   </main> ;
 }
